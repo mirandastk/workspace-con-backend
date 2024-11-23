@@ -1,0 +1,60 @@
+/* Estilos generales para el perfil de usuario */
+body {
+    font-family: 'Raleway', sans-serif;
+    transition: background-color 0.5s, color 0.5s;
+}
+
+.form-label {
+    font-weight: bold;
+    color: orange;
+}
+
+/* Foto de perfil */
+.profile-pic {
+    display: block;
+    margin: 20px auto;
+    max-width: 150px;
+    border-radius: 50%;
+    border: 3px solid #ddd;
+}
+
+/* Modo Noche */
+.dark-mode {
+    background-color: #343a40;
+    color: white;
+}
+
+.dark-mode .form-control {
+    background-color: #6c757d;
+    color: white;
+}
+
+.dark-mode .profile-pic {
+    border-color: #555;
+}
+
+.dark-mode .btn-primary {
+    background-color: #007bff;
+    border-color: #0056b3;
+}
+
+/* Botón de Guardar cambios */
+button.btn-primary {
+    background-color: #007bff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-size: 1rem;
+}
+
+/* Cambiar color del botón al hacer hover */
+button.btn-primary:hover {
+    background-color: #0056b3;
+}
+
+/* Responsividad */
+@media (max-width: 768px) {
+    .container {
+        padding: 20px;
+    }
+}

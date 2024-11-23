@@ -1,0 +1,85 @@
+
+body.dark-mode {
+    background-color: #333333; /* Color de fondo oscuro */
+    color: #ffffff; /* Color de texto claro */
+  }
+  
+  .dark-mode nav {
+    background-color: #1a1a1a; /* Fondo oscuro para la navegación */
+  }
+  
+  .dark-mode .jumbotron {
+    background-color: #1f1f1f; /* Fondo oscuro para la jumbotron */
+    color: #ffffff; /* Color de texto claro */
+  }
+  
+  .dark-mode .btn-light {
+    background-color: #1b1b1b; /* Fondo oscuro para botones */
+    color: #ffffff; /* Texto blanco en botones */
+  }
+  
+  .dark-mode footer {
+    background-color: #1a1a1a; /* Fondo oscuro para el pie de página */
+    color: #ffffff; /* Texto blanco en el pie de página */
+  }
+  
+  .dark-mode .list-group-item {
+    background-color: #2c2c2c; /* Fondo oscuro para elementos de la lista */
+    color: #ffffff; /* Texto blanco en elementos de la lista */
+  }
+  
+  .dark-mode .form-control {
+    color: #ffffff; /* Texto blanco en inputs */
+    border:  none }
+  
+  
+  .dark-mode .alert {
+    background-color: #333; /* Fondo oscuro para alertas */
+    color: #ffffff; /* Texto blanco en alertas */
+  }
+  
+ .dark-mode .card {
+    background-color: #1b1b1b;
+    color: #ffffff;
+  }
+
+  .dark-mode main {
+    background-color: #2c2c2c;
+  }
+
+  .dark-mode .btn {
+    border: none;
+  }
+
+  .dark-mode #articulos p {
+    color: #ffffff;
+  }
+
+  .dark-mode #continuar-comprando {
+    color:#ffffff;
+    background-color: #1a1a1a;
+  }
+
+  .dark-mode #resumen {
+    background-color: #2295c6;
+  }
+
+  .dark-mode #articulos {
+    background-color: #1a1a1a;
+  }
+
+  .dark-mode .table {
+    color: #ffffff;
+  }
+  
+  .dark-mode .producto-subtotal {
+    color:#ffffff;
+  }
+
+  .dark-mode .eliminar-producto {
+    color: #ffffff;
+  }
+  
+.dark-mode #comprar {
+  background-color: #eecd1e;
+}

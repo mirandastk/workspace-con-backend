@@ -1,0 +1,576 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+}
+
+h1 {
+    background: linear-gradient(to bottom, rgb(240, 145, 0), rgb(235, 212, 51));
+    color: rgb(0, 0, 0);
+    text-align: center;
+    padding: 0.5rem;
+    width: auto;
+    margin: 0 auto;
+    box-sizing: border-box;
+    border-radius: 0.5rem;
+    box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.1);
+    transition: background 0.3s ease, color 0.3s ease;
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3); /* Añade sombra al texto */
+}
+
+header {
+    background-color: #ffd700;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header nav a {
+    margin-right: 15px;
+    color: black;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+#carrito {
+    display: flex;
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+#articulos {
+    width: 60%;
+    background-color: white;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+#articulos h2 {
+    background-color: black;
+    color: white;
+    padding: 15px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    justify-content: space-between;
+}
+
+#lista-productos {
+    list-style: none;
+    padding: 0;
+}
+
+.producto-item {
+    display: flex;
+    align-items: center;
+    padding: 15px;
+    border: 2px solid #ffd700;
+    border-radius: 5px;
+    margin-bottom: 15px;
+}
+
+.producto-imagen {
+    width: 60px;
+    height: 60px;
+    margin-right: 15px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+}
+
+.producto-detalle {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.producto-detalle span {
+    margin-bottom: 5px;
+}
+
+.producto-cantidad {
+    width: 60px;
+    padding: 5px;
+    margin-left: 10px;
+    text-align: center;
+}
+
+.eliminar-producto {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1.2em;
+    color: #333;
+}
+
+.eliminar-producto:hover {
+    color: red;
+}
+
+#resumen {
+    width: 35%;
+    background-color: #97cfe7;
+    padding: 20px;
+    border-radius: 5px;
+    margin-left: 20px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+#resumen h3 {
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+#resumen label {
+    display: block;
+    margin: 5px 0;
+    font-size: 0.9em;
+}
+
+#resumen input[type="text"] {
+    width: calc(100% - 20px);
+    padding: 8px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+#totales {
+    margin-top: 20px;
+}
+
+#totales p {
+    font-size: 1.2em;
+    font-weight: bold;
+    text-align: right;
+    margin: 5px 0;
+}
+
+#comprar {
+    background-color: #ffd700;
+    color: black;
+    padding: 15px 20px;
+    border: none;
+    font-weight: bold;
+    border-radius: 60px;
+    cursor: pointer;
+    display: block;
+    width: 100%;
+    text-align: center;
+    margin-top: 20px;
+    font-size: 1.2em;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra */
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+#comprar:hover {
+    background-color: #ffcc00;
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15); /* Sombra más intensa */
+}
+
+/* Botón de continuar comprando */
+#continuar-comprando {
+    color: rgb(0, 0, 0);
+    padding: 10px 15px;
+    text-decoration: none;
+    font-weight: bold;
+    margin-bottom: 20px;
+    background-color: transparent;
+    border: none; /* Sin borde */
+    cursor: pointer;
+    background-color: white;
+    border-radius: 10px;
+}
+
+#continuar-comprando:hover {
+    color: #ff8c00; 
+}
+
+/* Subtotal dinámico */
+.producto-subtotal {
+    font-weight: bold;
+    color: #333;
+    text-align: right;
+}
+
+#numero, #esquina  {
+    color: #000;
+}
+@media (max-width: 768px) {
+    #carrito {
+        flex-direction: column;
+    }
+
+    #articulos {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    #resumen {
+        width: 100%;
+        margin-left: 0;
+    }
+
+    #comprar {
+        font-size: 1em;
+        padding: 12px 15px;
+    }
+
+    h1 {
+        font-size: 1.5em;
+    }
+
+    #continuar-comprando {
+        font-size: 0.9em;
+    }
+}
+
+@media (max-width: 576px) {
+    h1 {
+        font-size: 1.2em;
+    }
+
+    #articulos h2 {
+        font-size: 1.2em;
+    }
+
+    #resumen h3 {
+        font-size: 1.2em;
+    }
+
+    .producto-imagen {
+        width: 50px;
+        height: 50px;
+    }
+}
+
+
+/* Para pantallas grandes */
+@media (min-width: 768px) {
+    .producto-imagen {
+        width: 120px;
+    }
+
+    td {
+        font-size: 16px;
+    }
+
+    .producto-cantidad {
+        width: 60px;
+    }
+}
+
+/* Para pantallas medianas (tablets) */
+@media (max-width: 767px) {
+    td {
+        font-size: 14px;
+    }
+
+    .producto-imagen {
+        width: 80px;
+    }
+
+    .producto-cantidad {
+        width: 50px;
+    }
+
+    .eliminar-producto {
+        font-size: 14px;
+    }
+
+    /* Mostrar los elementos de la tabla en bloques */
+    table {
+        display: block;
+        overflow-x: auto;
+    }
+
+    .producto-cantidad, .producto-subtotal {
+        width: 50%;
+    }
+}
+
+/* Para pantallas pequeñas (móviles) */
+@media (max-width: 480px) {
+    td {
+        font-size: 12px;
+    }
+
+    .producto-imagen {
+        width: 60px;
+    }
+
+    .producto-cantidad {
+        width: 40px;
+    }
+
+    .eliminar-producto {
+        font-size: 12px;
+    }
+
+    /* Ajustar tabla para ocupar toda la pantalla */
+    table {
+        width: 100%;
+        display: block;
+        overflow-x: auto;
+    }
+
+    .producto-cantidad, .producto-subtotal {
+        width: 100%;
+        text-align: left;
+    }
+}
+
+
+.mensaje-exito {
+    display: none; /* Oculto por defecto */
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color:#ffcc00;
+    color: rgb(22, 22, 22);
+    padding: 2%;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    font-weight: bold;
+    font-family: Arial, sans-serif;
+    font-size: 1.5em;
+  }
+  
+  .mensaje-exito button {
+    background-color: #ffffff;
+    color: #313131;
+    border: none;
+    padding: 2px 8px;
+    cursor: pointer;
+    margin-top: 10px;
+    font-size: 0.7em;
+    
+    
+  }
+
+  /* Estilos del modal */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+/* Estilos dentro del modal, asegurando que solo los elementos del modal se vean afectados */
+.modal .modal-content {
+    background-color: #fff;
+    margin: 10% auto;
+    padding: 20px;
+    width: 50%;
+    border-radius: 10px;
+    border: none; /* Elimina cualquier borde en el modal */
+    background-color: #fff; /* Fondo blanco para el modo día */
+   font-family: Verdana, sans-serif;
+}
+
+
+
+.modal .close {
+    color: #aaa;
+    font-size: 28px;
+    font-weight: bold;
+    position: absolute;
+    top: 10px;
+    right: 20px;
+}
+
+.modal .close:hover,
+.modal .close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.modal .modal-footer {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.modal .payment-fields input {
+    margin: 10px 0;
+    width: 100%;
+    padding: 10px;
+    border-radius: 25px !important;
+    border: 1px solid #ccc;
+}
+
+/* Estilos para el tema de modo noche solo dentro del modal */
+.dark-mode .modal .modal-content {
+    background-color: #333;
+    color: white;
+}
+
+.modal .modal-content h2 {
+    text-align: center;
+    color: #ff8c00;
+    font-size: 26px;
+    padding-bottom: 10px;
+    margin-top: 0.5em;
+    font-weight: bold;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.10); /* Sombra del texto */
+
+}
+
+
+.dark-mode .modal .payment-fields input {
+    background-color: #555;
+    color: white;
+    border: 1px solid #666;
+  
+}
+
+.dark-mode .modal .modal-footer button {
+    background-color: #444;
+    color: white;
+}
+
+.dark-mode .modal .close {
+    color: white;
+}
+
+/* Evitar que el modo noche afecte al desplegable del nombre de usuario */
+.dark-mode .navbar {
+    background-color: #343a40; /* Asegúrate de que la barra de navegación tenga un fondo adecuado para el modo noche */
+    color: white; /* Color adecuado para los textos */
+}
+
+/* Evitar que el color de texto del desplegable cambie */
+.dark-mode .navbar .dropdown-menu {
+    background-color: #343a40; /* Asegúrate de que el fondo del menú desplegable no cambie */
+    color: white; /* Texto en blanco para el desplegable */
+}
+
+.dark-mode .navbar .dropdown-menu a {
+    color: white; /* Mantener el color del texto del desplegable */
+}
+
+/* Estilos de la barra de navegación en modo día */
+.navbar {
+    background-color: #fff;
+    color: #000;
+}
+
+.navbar .dropdown-menu {
+    background-color: #fff;
+    color: #000;
+}
+
+.navbar .dropdown-menu a {
+    color: #000;
+}
+
+
+/* Estilos para el botón de confirmar en modo noche */
+.dark-mode .modal .modal-footer button {
+    background-color:#97cfe7;
+    color: black; /* Color del texto */
+    border: none; /* Elimina el borde */
+    padding: 10px 20px; /* Relleno del botón */
+    border-radius: 5px; /* Bordes redondeados */
+    cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
+    transition: background-color 0.3s ease; /* Transición suave al cambiar de color */
+}
+
+
+.dark-mode .modal .modal-content h2 {
+    text-shadow: none; /* Sin sombra en el modo noche */
+    color: #ffd700;
+}
+
+.modal .modal-footer button {
+    background-color: #97cfe7;
+    color: #000; /* Color de texto negro */
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+    
+}
+
+/* Estilo para el botón de "Medios de pago" */
+
+#openModalBtn {
+    background-color:#ffd700; 
+    color: white; /* Texto blanco */
+    border: none;
+    padding: 5px 20px; /* Relleno */
+    border-radius: 26px; /* Bordes redondeados */
+    font-size: 19px; /* Tamaño de la fuente */
+    font-weight: bold; /* Texto en negrita */
+    transition: background-color 0.3s ease; /* Transición suave */
+    color: black;
+    }
+
+/* Estilos en modo noche */
+.dark-mode #openModalBtn  {
+    background-color: #444; /* Fondo oscuro */
+    color: #fff; /* Texto blanco */
+}
+
+
+.bold-large-text {
+    font-weight: bold;
+    font-size: 1.2rem; /* Puedes ajustar el tamaño según prefieras */
+  }
+
+  #transferFields p {
+    font-weight: normal;  /* Elimina la negrita */
+    text-align: left;     /* Alinea el texto a la izquierda */
+  }
+
+/* Estilo para el contenedor del campo de código de descuento */
+#discountCodeSection {
+    margin-top: 20px;
+    width: 60%;  /* Asegúrate de que el contenedor sea más pequeño */
+    text-align: left;  /* Alinea el contenido a la izquierda */
+    width: 30%;
+  }
+  
+  
+  .fa-percent {
+    font-weight: bold;
+    color: #ff8c00;
+  }
+ 
+  .dark-mode .fa-percent  {
+    color:#ffd700;
+  }
+
+  .modal .modal-footer {
+    display: flex;
+    justify-content: center;
+    gap: 10px; /* Opcional: espacio entre los botones */
+    margin-top: 20px;
+}
+
+.modal .modal-footer button {
+    background-color: #97cfe7;
+    color: black;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+    cursor: pointer;
+}
+
+

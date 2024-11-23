@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>eMercado - Todo lo que busques está aquí</title>
+  <link href="https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <link href="css/font-awesome.min.css" rel="stylesheet">
+  <link href="css/styles.css" rel="stylesheet">
+  <link href="css/modonoche.css" rel="stylesheet">
+  <link href="css/cart.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark p-1">
+    <div class="container">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav w-100 justify-content-between">
+          <li class="nav-item">
+            <a class="nav-link" href="index.html">Inicio</a>
+          </li>
+          <!-- Menú desplegable de Categorías corregido -->
+          <li class="nav-item dropdown">
+            <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="categoryMenu" data-bs-toggle="dropdown" aria-expanded="false">
+              Categorías
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="categoryMenu">
+              <li><a class="dropdown-item" id="101" href="#">Autos</a></li>
+              <li><a class="dropdown-item" id="102" href="#">Juguetes</a></li>
+              <li><a class="dropdown-item" id="103" href="#">Muebles</a></li>
+              <li><a class="dropdown-item" id="104" href="#">Herramientas</a></li>
+              <li><a class="dropdown-item" id="105" href="#">Computadoras</a></li>
+              <li><a class="dropdown-item" id="106" href="#">Vestimenta</a></li>
+              <li><a class="dropdown-item" id="107" href="#">Electrodomésticos</a></li>
+              <li><a class="dropdown-item" id="108" href="#">Deporte</a></li>
+              <li><a class="dropdown-item" id="109" href="#">Celulares</a></li>
+              <li><a class="dropdown-item" href="categories.html">Mostrar todo</a></li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="sell.html">Vender</a>
+          </li>
+          <div class="form-check form-switch mb-3" style="margin-top: 0.7%; color: rgb(142, 142, 142);">
+            <input class="form-check-input" type="checkbox" id="themeSwitch">
+            <label class="form-check-label" for="themeSwitch">Modo Noche</label>
+          </div>
+          <li class="nav-item dropdown">
+            <a class="btn btn-secondary dropdown-toggle" id="user-menu" href="#" role="button" data-bs-toggle="dropdown"
+              aria-expanded="false">
+              Nombre de Usuario
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="cart.html">Mi carrito <span id="cart-badge" class="badge text-bg-secondary"> <!--Acá va la cantidad de productos en el carrito--></span></a></li>              <li><a class="dropdown-item" href="my-profile.html">Mi perfil</a></li>
+              <li><a class="dropdown-item" href="#" id="logout">Cerrar sesión</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+    
+<div id="mensaje-exito" class="mensaje-exito">
+  <p>¡Compra exitosa!</p>
+  <button id="cerrar-exito">Cerrar</button>
+</div>
+
+    <h1>Carrito de compras</h1>
+    <button id="continuar-comprando" onclick="window.history.back()">← Continuar comprando</button>
+
+    <div id="carrito">
+      <section id="articulos">
+        <h2><i class="fa-solid fa-cart-shopping"></i>Artículos a comprar</h2>
+        <table class="table">
+          <thead>
+            <tr>
+              <th></th>              
+              <th>Nombre</th>
+              <th>Costo</th>
+              <th>Cantidad</th>
+              <th>Subtotal</th>
+            </tr>
+          </thead>
+          <tbody id="lista-productos">
+            <!-- Aquí irán los productos -->
+          </tbody>
+        </table>
+        <p id="mensaje-vacio" style="display: none;">No hay productos en el carrito.</p>
+      </section>
+
+      <section id="resumen">
+        <h3>Tipo de envío</h3>
+        <label><input type="radio" name="envio" value="premium" checked> Premium 2 a 5 días (+15%)</label>
+        <label><input type="radio" name="envio" value="express"> Express 5 a 8 días (+7%)</label>
+        <label><input type="radio" name="envio" value="standard"> Standard 12 a 15 días (+5%)</label>
+
+        <h3>Dirección de envío</h3>
+        <label for="departamento">Departamento:</label>
+        <input type="text" id="departamento" placeholder="Departamento">
+
+        <label for="localidad">Localidad:</label>
+        <input type="text" id="localidad" placeholder="Localidad">
+
+        <label for="calle">Calle:</label>
+        <input type="text" id="calle" placeholder="Calle">
+      
+        <div class="row">
+          <div class="col-12 col-md-6 mb-2"> 
+            <label for="numero">Número:</label> 
+            <input type="text" class="form-control" id="numero" placeholder="Número">
+          </div> 
+        
+          <div class="col-12 col-md-6 mb-2"> 
+            <label for="esquina">Esquina:</label> 
+            <input type="text" class="form-control" id="esquina" placeholder="Esquina"> 
+          </div>
+        </div>
+       
+        <div id="totales">
+         
+<!-- Botón que abre el modal -->
+<button id="openModalBtn" class="btn btn-primary" style="margin-bottom: 2%;">Métodos de pago</button>
+
+<!-- Modal de pago -->
+<div id="paymentModal" class="modal">
+    <div class="modal-content">
+        <span id="closeModalBtn" class="close">&times;</span>
+        <h2>Selecciona tu método de pago</h2>
+        
+        <!-- Métodos de pago -->
+        <div>
+          
+          <label>
+            <input type="radio" name="paymentMethod" value="card" id="cardRadio"> 
+            <span class="bold-large-text">Pagar con tarjeta</span>
+          </label>
+
+            <div id="cardFields" class="payment-fields" style="display: none;">
+                <label for="cardNumber">Número de tarjeta:</label>
+                <input type="text" id="cardNumber" placeholder="Número de tarjeta">
+                <label for="securityCode">Código de seguridad:</label>
+                <input type="text" id="securityCode" placeholder="Código de seguridad">
+                <label for="expiryDate">Fecha de vencimiento (MM/AA):</label>
+                <input type="text" id="expiryDate" placeholder="MM/AA">
+            </div>
+        <!-- Logos de las tarjetas -->
+        <div id="cardLogos" class="mt-3">
+          <img src="img/visa.png" alt="Visa" width="56">
+          <img src="img/master.png" alt="Mastercard" width="49">
+          <img src="img/brou.png" alt="Brou" width="55">
+          <img src="img/scotia.png" alt="Scotiabank" width="62">
+        </div>
+           
+        <label>
+          <input type="radio" name="paymentMethod" value="transfer" id="transferRadio"> 
+          <span class="bold-large-text">Transferencia</span>
+        </label>
+
+            <div id="transferFields" class="payment-fields" style="display: none;">
+                <p>Cuenta bancaria para transferencia: 1234567890</p>
+            </div>
+             <!-- Nuevo campo para el código de descuento -->
+             <div id="discountCodeSection" class="payment-fields ">
+              <label for="discountCode" class="fa-percent">  Código promocional:</label>
+               <input type="text" id="discountCode" placeholder="Ingresa tu código">
+              </div> 
+        </div>
+        <div class="modal-footer">
+            <button id="cancelBtn" class="btn btn-secondary">Cancelar</button>
+            <button id="confirmBtn" class="btn btn-primary">Confirmar</button>
+        </div>
+    </div>
+</div>
+
+          <p>Subtotal: <span id="subtotal">UYU 0</span></p>
+          <p>Costo de envío: <span id="envio">UYU 0</span></p>
+          <p>Total: <span id="total">UYU 0</span></p>
+        </div>
+        <button id="comprar">FINALIZAR COMPRA</button>
+      </section>
+    </div>
+  </main>
+
+  <footer class="text-muted">
+    <div class="container">
+      <p class="float-end">
+        <a href="#">Volver arriba</a>
+      </p>
+      <p>Este sitio forma parte de <a href="https://jovenesaprogramar.edu.uy/" target="_blank">Jovenes a Programar</a>
+      </p>
+    </div>
+  </footer>
+
+  <div id="spinner-wrapper">
+    <div class="lds-ring">
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+  </div>
+
+  <script src="js/bootstrap.bundle.min.js"></script>
+  <script src="js/init.js"></script>
+  <script src="js/cart.js"></script>
+</body>
+
+</html>
+

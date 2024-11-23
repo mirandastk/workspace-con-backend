@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>eMercado - Todo lo que busques está aquí</title>
+
+  <link href="https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
+  <link href="css/font-awesome.min.css" rel="stylesheet">
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <link href="css/styles.css" rel="stylesheet">
+  <link href="css/product-info.css" rel="stylesheet"> 
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark p-1">
+    <div class="container">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav w-100 justify-content-between">
+          <li class="nav-item">
+            <a class="nav-link" href="index.html">Inicio</a>
+          </li>
+          <!-- Menú desplegable de Categorías corregido -->
+          <li class="nav-item dropdown">
+            <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="categoryMenu" data-bs-toggle="dropdown" aria-expanded="false">
+              Categorías
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="categoryMenu">
+              <li><a class="dropdown-item" id="101" href="#">Autos</a></li>
+              <li><a class="dropdown-item" id="102" href="#">Juguetes</a></li>
+              <li><a class="dropdown-item" id="103" href="#">Muebles</a></li>
+              <li><a class="dropdown-item" id="104" href="#">Herramientas</a></li>
+              <li><a class="dropdown-item" id="105" href="#">Computadoras</a></li>
+              <li><a class="dropdown-item" id="106" href="#">Vestimenta</a></li>
+              <li><a class="dropdown-item" id="107" href="#">Electrodomésticos</a></li>
+              <li><a class="dropdown-item" id="108" href="#">Deporte</a></li>
+              <li><a class="dropdown-item" id="109" href="#">Celulares</a></li>
+              <li><a class="dropdown-item" href="categories.html">Mostrar todo</a></li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="sell.html">Vender</a>
+          </li>
+
+          <!-- SWITCH MODO NOCHE, se crea un div con clases de bootstrap para crear el switch. Tiene un input del tipo checkbox para manejarlo-->
+          <div class="form-check form-switch mb-3" style="margin-top: 0.7%; color: rgb(142, 142, 142);">
+            <input class="form-check-input" type="checkbox" id="themeSwitch">
+            <label class="form-check-label" for="themeSwitch">Modo Noche</label>
+        </div>
+
+          <li class="nav-item">
+            <li class="nav-item" id="usuario" style="color:white; float:right; margin-top:0.5em"></li>
+          </li>
+
+          <div class="dropdown">
+            <a class="btn btn-secondary dropdown-toggle" id="user-menu" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Nombre de Usuario
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="cart.html">Mi carrito <span id="cart-badge" class="badge text-bg-secondary"> <!--Acá va la cantidad de productos en el carrito--></span></a></li>               
+              <li><a class="dropdown-item" href="my-profile.html">Mi perfil</a></li>
+              <li><a class="dropdown-item" href="#" id="logout">Cerrar sesión</a></li>
+            </ul>
+          </div>             
+
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+
+    <p id="route">
+      <a href="index.html">Inicio</a> &gt 
+      <a href="categories.html" id="product-category"></a> &gt 
+      <a href="product-info.html" id="product-route"></a>
+    </p> 
+
+    <div id="product-info">
+
+      <div class="product-info-wrapper">
+        <div class="carousel-container">
+          <div id="large-image">
+            <img src="" alt="Product Large Image">
+          </div>
+          <div class="carousel-controls">
+            <button id="prev-btn">Anterior</button>
+            <button id="next-btn">Siguiente</button>
+          </div>
+          <div class="thumbnails"></div>
+          
+        </div>
+
+        <div class="text">
+          <h1 id="product-name"></h1>
+          <p id="product-description"></p>
+          <button id="product-tech-specs-btn">FICHA TÉCNICA</button>
+          <br>
+          <div id="product-data">
+            <p id="product-sold-count"></p>
+            <p id="product-cost"></p>
+
+            <button class="product-buttons" id="buy-button">AGREGAR AL CARRITO</button>
+            <button class="product-buttons" id="contact-btn">CONTACTANOS</button>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+<div id="comentarioss">
+    
+    <!-- comentarios de la API (divs para manipular los estilos e insertar los comentarios mediante js) --> 
+    <div id="comments-background">
+      <div id="comments-section">
+        <h3>Comentarios</h3>      
+        <div id="comments-container">
+        </div>
+      </div>
+      <div class="rating-container">
+        <div class="rating-section">
+          <form id="ratingForm">
+            <div class="form-top">
+              <h3>Calificación</h3>
+              <div class="rating-stars">
+                <span class="star" data-value="1">&#9733;</span>
+                <span class="star" data-value="2">&#9733;</span>
+                <span class="star" data-value="3">&#9733;</span>
+                <span class="star" data-value="4">&#9733;</span>
+                <span class="star" data-value="5">&#9733;</span>
+              </div>        
+            </div>
+            <textarea id="comment" placeholder="Escribe tu comentario..."></textarea>
+            <div class="button-calification">
+              <button class="ratingBtn" type="submit">Enviar</button>
+              <p id="statusMessage" style="display:none;">Gracias por tu calificación.</p>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div id="related-products">
+    <h3>Productos relacionados</h3>
+    <div id="related-products-section">
+    <div id="related-products-carousel" class="carousel">
+      <button id="prev-button" class="carousel-btn">Anterior</button>
+      <div id="related-products-container" class="related-products-grid">
+        <!-- Aquí se cargarán los productos relacionados -->
+      </div>
+      <button id="next-button" class="carousel-btn">Siguiente</button>
+    </div>
+  </div>
+</div>
+
+</main>
+
+  
+  <footer class="text-muted">
+    <div class="container">
+      <p class="float-end">
+        <a href="#">Volver arriba</a>
+      </p>
+      <p>Este sitio forma parte de <a href="https://jovenesaprogramar.edu.uy/" target="_blank">Jovenes a Programar</a></p>
+    </div>
+  </footer>
+
+  <div id="spinner-wrapper">
+    <div class="lds-ring">
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+  </div>
+  <script src="js/bootstrap.bundle.min.js"></script>
+  <script src="js/init.js"></script>
+  <script src="js/product-info.js"></script>
+  
+    <!--Para el badge del carrito-->
+    <script src="js/cart.js"></script>
+</body>
+
+</html>

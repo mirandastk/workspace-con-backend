@@ -1,0 +1,216 @@
+.container {
+    display: block;
+    flex-wrap: wrap;
+     gap: 1rem; /* En lugar de usar margin individual en cada tarjeta */
+  }
+
+
+.product-card {
+text-align: center;
+width: 32%;
+background-color: #97cfe7;
+box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.1);
+padding: 1rem;
+margin-bottom: 1.25rem;
+text-align: left;
+margin:0.3125rem;
+border-radius: 0.5rem;
+border: 0.125rem solid #cbecfa;
+transition: transform 0.3s ease, box-shadow 0.3s ease
+}
+
+
+.product-card img {
+width: 100%;
+height: auto;
+background-color: #f0f0f0; /* Placeholder color */
+border: 0.125rem solid #cbecfa;
+}
+.product-card h2 {
+font-size: 1.5rem;
+color: #333;
+margin-top: 0.3125rem;
+font-weight: bold;
+}
+.product-card p {
+font-size: 1rem;
+color: #363636;
+margin-top: 0.0625rem;
+}
+.product-card h3 {
+font-size: 1.2rem;
+color: #333;
+margin-top: 0.125rem;
+}
+
+.product-card .sold-count {
+color: #333;
+text-align: right;
+}
+
+.text-center {
+    background: linear-gradient(to bottom, rgb(240, 145, 0), rgb(235, 212, 51));
+    color: rgb(33, 37, 41, 74%);
+    text-align: center;
+    padding: 1rem ; 
+    width: 99%; 
+    box-sizing: border-box;
+    border-radius: 0.5rem;
+    box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.1);
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+
+/* Para Resolución Estándar: 1366 x 768 px */
+@media (min-width: 993px) {
+    .product-card {
+        width: 32%; /* 3 tarjetas por fila */
+    }
+}
+
+/* Para Tableta en Modo Vertical: 768 x 1024 px */
+@media (max-width: 992px) {
+    .product-card {
+        width: 48%; /* 2 tarjetas por fila */
+    }
+}
+
+/* Para Smartphone Pequeño: 320 x 568 px */
+@media (max-width: 767px) {
+    .product-card {
+        width: 100%; /* 1 tarjeta por fila */
+    }
+}
+
+.product-card:hover,
+.product-card:focus {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+  /*le saca el borde a el row que tiene los controladores de precios*/
+.no-border {
+    border: none;
+    box-shadow: none;
+}
+
+/*le arregla la distancia entre los botones*/
+.text-end {
+    height:1.5em;
+}
+
+.search-container {
+  position: relative;
+  padding: 1rem;
+  margin-top: 0rem;
+  margin-bottom: 1rem;
+}
+
+.search-wrapper {
+  position: absolute;
+  right: 1rem;
+  top: 0;
+  width: auto;
+}
+
+.search-text {
+  padding-left: 40px;
+  width: 33rem;
+  height: 2.5rem;
+  border-radius: 0.25rem;
+}
+
+.search-icon {
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  margin-left: 8px;
+}
+
+/* Ajustes en el contenedor del filtro de precio */
+.price-filter-container {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 0.5rem; 
+  }
+  
+  .price-filter-container .form-control {
+    width: 8em; 
+  }
+  
+  .price-filter-container .btn-group {
+    display: flex;
+    align-items: center;
+    padding: 1em
+  }
+
+  body.dark-mode {
+    background-color: #333333; /* Color de fondo oscuro */
+    color: #ffffff; /* Color de texto claro */
+  }
+  
+  .dark-mode nav {
+    background-color: #1a1a1a; /* Fondo oscuro para la navegación */
+  }
+  
+  .dark-mode .jumbotron {
+    background-color: #1f1f1f; /* Fondo oscuro para la jumbotron */
+    color: #ffffff; /* Color de texto claro */
+  }
+  
+  .dark-mode .btn-light {
+    background-color: #333; /* Fondo oscuro para botones */
+    color: #ffffff; /* Texto blanco en botones */
+  }
+  
+  .dark-mode footer {
+    background-color: #1a1a1a; /* Fondo oscuro para el pie de página */
+    color: #ffffff; /* Texto blanco en el pie de página */
+  }
+  
+  .dark-mode .list-group-item {
+    background-color: #2c2c2c; /* Fondo oscuro para elementos de la lista */
+    color: #ffffff; /* Texto blanco en elementos de la lista */
+  }
+  
+  .dark-mode .form-control {
+    background-color: #333333; /* Fondo oscuro para inputs */
+    color: #ffffff; /* Texto blanco en inputs */
+    border:  none }
+  
+  
+  .dark-mode .alert {
+    background-color: #333; /* Fondo oscuro para alertas */
+    color: #ffffff; /* Texto blanco en alertas */
+  }
+  
+  .dark-mode .product-card {
+    background-color: #585858;
+    border: none;
+
+  }
+
+  .dark-mode .product-card p {
+    color: #f0f0f0;
+  }
+
+  .dark-mode .product-card h3 {
+    color: #f0f0f0;
+  }
+  .dark-mode .product-card h2 {
+    color: #f0f0f0;
+  }
+
+  .dark-mode .product-card .sold-count {
+    color: #f0f0f0;
+  }
+
+  h5 {
+    color: #212529bd; 
+  }
+
+  .dark-mode h5 {
+    color: #f0f0f0;
+  }
