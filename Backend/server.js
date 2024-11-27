@@ -190,6 +190,20 @@ app.get('/user_cart', (req, res) => {
   });
 });
 
+// Ruta para obtener el archivo cat.json (en la carpeta 'cats')
+app.get('/cats', (req, res) => {
+  const filePath = path.join(__dirname, 'data', 'cats', 'cat.json');
+
+  console.log('Buscando archivo cat.json en cats:', filePath); // Depuración
+
+  fs.readFile(filePath, 'utf8', (err, data) => {
+    if (err) {
+      console.error('Error al leer el archivo cat.json', err); // Depuración
+      return res.status(404).json({ error: 'Archivo cat.json no encontrado' });
+    }
+    res.json(JSON.parse(data));
+  });
+});
 
 
 
