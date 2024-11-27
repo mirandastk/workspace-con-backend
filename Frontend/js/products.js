@@ -16,7 +16,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
   const container = productGrid.parentNode;
  
-  let productsURL=PRODUCTS_URL+localStorage.getItem("catID")+ EXT_TYPE
+  let productsURL = `http://localhost:3000/cats_products/${localStorage.getItem("catID")}`;
 
   getJSONData(productsURL).then(result => {
     if (result.status === 'ok') {
