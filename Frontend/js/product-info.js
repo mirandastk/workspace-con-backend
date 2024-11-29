@@ -3,7 +3,7 @@
     const productId = localStorage.getItem('selectedProductId');
     
     if (productId) {
-        const apiUrl = `https://japceibal.github.io/emercado-api/products/${productId}.json`;
+        const apiUrl = `http://localhost:3000/products/${productId}`;
 
         // Obtener datos del producto
         fetch(apiUrl)
@@ -98,7 +98,7 @@ product.relatedProducts.forEach(async (relatedProduct) => {
     productElement.classList.add('related-product');
 
     // Hacer una petición para obtener los detalles del producto relacionado
-    const relatedProductUrl = `https://japceibal.github.io/emercado-api/products/${relatedProduct.id}.json`;
+    const relatedProductUrl = `http://localhost:3000/products/${relatedProduct.id}`;
     const response = await fetch(relatedProductUrl);
     const fullRelatedProduct = await response.json();
 
@@ -156,7 +156,7 @@ function updateCarousel() {
 
 //COMENTARIOS DE LA API
     // se construye la url de la API con el id del producto
-    const apicommentsUrl = `https://japceibal.github.io/emercado-api/products_comments/${productId}.json`;
+    const apicommentsUrl = `http://localhost:3000/products_comments/${productId}`;
 
     // se realiza el fetch de la API para obtener los comentarios 
     fetch(apicommentsUrl)
