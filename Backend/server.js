@@ -22,6 +22,42 @@ app.listen(PORT, () => {
   console.log(`Servidor corriendo en http://localhost:${PORT}`);
 });
 
+
+
+
+// Middleware para verificar el token
+const authorize = (req, res, next) => {
+  // Obtener el header de autorización
+  const authHeader = req.headers['authorization'];
+  
+  // Si no se proporciona el header de autorización
+  if (!authHeader) {
+    console.log('No se proporcionó el token'); // Depuración
+    return res.status(401).json({ message: 'Token no proporcionado' });
+  }
+
+  // Obtener el token del header (se espera formato "Bearer <token>")
+  const token = authHeader.split(' ')[1];
+
+  // Si no se proporciona un token después de "Bearer"
+  if (!token) {
+    console.log('El formato del token es incorrecto o no se proporcionó token'); // Depuración
+    return res.status(401).json({ message: 'Token no proporcionado' });
+  }
+
+  // Verificar el token
+  jwt.verify(token, SECRET_KEY, (err, user) => {
+    if (err) {
+      console.log('Token inválido o expirado'); // Depuración
+      return res.status(403).json({ message: 'Token inválido o expirado' });
+    }
+    // Almacenar los datos del usuario en la solicitud (req.user)
+    req.user = user;
+    next();
+  });
+};
+
+
 /////////////////////////////////////////////////////////////////////////////////7
 
 
