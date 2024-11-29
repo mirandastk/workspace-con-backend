@@ -2,8 +2,9 @@ const express = require('express');
 const cors = require('cors');
 const fs = require('fs');
 const path = require('path');
-
+const jwt = require('jsonwebtoken');
 const app = express();
+const SECRET_KEY = "claveSecreta123";
 
 // Configuración del servidor
 app.use(cors());
@@ -28,7 +29,7 @@ app.listen(PORT, () => {
 
 
 // Ruta para obtener todos los productos (en la carpeta 'products')
-app.get('/products', (req, res) => {
+app.get('/products',(req, res) => {
   const dataPath = path.join(__dirname, 'data', 'products');
   const products = [];
 
@@ -204,6 +205,24 @@ app.get('/cats', (req, res) => {
     res.json(JSON.parse(data));
   });
 });
+
+app.post('/login', (req, res) => {
+  const { username, password } = req.body;
+
+  console.log('Datos recibidos:', req.body); // Depuración
+  if (!username || !password) {
+    return res.status(400).json({ message: "Faltan credenciales" });
+  }
+
+  if (username === "admin" && password === "admin") {
+    // Generar token
+    const token = jwt.sign({ username }, SECRET_KEY, { expiresIn: '1h' });
+    res.json({ message: "Login exitoso", token });
+  } else {
+    res.status(401).json({ message: "Credenciales incorrectas" });
+  }
+});
+
 
 
 
