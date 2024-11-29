@@ -22,14 +22,12 @@ app.listen(PORT, () => {
   console.log(`Servidor corriendo en http://localhost:${PORT}`);
 });
 
-
-
 /////////////////////////////////////////////////////////////////////////////////7
 
 
 
 // Ruta para obtener todos los productos (en la carpeta 'products')
-app.get('/products',(req, res) => {
+app.get('/products', authorize, (req, res) => {
   const dataPath = path.join(__dirname, 'data', 'products');
   const products = [];
 
@@ -50,7 +48,7 @@ app.get('/products',(req, res) => {
 });
 
 // Ruta para obtener un producto específico por su ID (en la carpeta 'products')
-app.get('/products/:id', (req, res) => {
+app.get('/products/:id',  authorize, (req, res) => {
   const { id } = req.params;
   const filePath = path.join(__dirname, 'data', 'products', `${id}.json`);
 
@@ -69,7 +67,7 @@ app.get('/products/:id', (req, res) => {
 ////////////////////////////////////////////////////////////////////////////////////////////
 
 // Ruta para obtener el carrito de compras (en la carpeta 'cart')
-app.get('/cart', (req, res) => {
+app.get('/cart',  authorize, (req, res) => {
   const filePath = path.join(__dirname, 'data', 'cart', 'buy.json');
   console.log('Buscando carrito en:', filePath); // Depuración
 
@@ -83,7 +81,7 @@ app.get('/cart', (req, res) => {
 });
 
 // Ruta para obtener los productos de las categorías (en la carpeta 'cats_products')
-app.get('/cats_products', (req, res) => {
+app.get('/cats_products',  authorize, (req, res) => {
   const dataPath = path.join(__dirname, 'data', 'cats_products');
   const products = [];
 
@@ -106,7 +104,7 @@ app.get('/cats_products', (req, res) => {
 });
 
 // Ruta para obtener un producto específico por su ID en 'cats_products'
-app.get('/cats_products/:id', (req, res) => {
+app.get('/cats_products/:id', authorize, (req, res) => {
   const { id } = req.params;
   const filePath = path.join(__dirname, 'data', 'cats_products', `${id}.json`);
 
@@ -123,7 +121,7 @@ app.get('/cats_products/:id', (req, res) => {
 
 
 // Ruta para obtener comentarios de productos (en la carpeta 'products_comments')
-app.get('/products_comments', (req, res) => {
+app.get('/products_comments',  authorize, (req, res) => {
   const dataPath = path.join(__dirname, 'data', 'products_comments');
   const comments = [];
 
@@ -145,7 +143,7 @@ app.get('/products_comments', (req, res) => {
 });
 
 // Ruta para obtener un comentario específico por su ID (en la carpeta 'products_comments')
-app.get('/products_comments/:id', (req, res) => {
+app.get('/products_comments/:id',  authorize, (req, res) => {
   const { id } = req.params;
   const filePath = path.join(__dirname, 'data', 'products_comments', `${id}.json`);
   
@@ -162,7 +160,7 @@ app.get('/products_comments/:id', (req, res) => {
 });
 
 // Ruta para obtener el archivo de publicación (en la carpeta 'sell')
-app.get('/sell', (req, res) => {
+app.get('/sell', authorize, (req, res) => {
   const filePath = path.join(__dirname, 'data', 'sell', 'publish.json');
 
   console.log('Buscando archivo de publicación en sell:', filePath); // Depuración
@@ -177,7 +175,7 @@ app.get('/sell', (req, res) => {
 });
 
 // Ruta para obtener el carrito de usuario (en la carpeta 'user_cart')
-app.get('/user_cart', (req, res) => {
+app.get('/user_cart',  authorize, (req, res) => {
   const filePath = path.join(__dirname, 'data', 'user_cart', '25801.json');
 
   console.log('Buscando carrito de usuario en user_cart:', filePath); // Depuración
@@ -192,7 +190,7 @@ app.get('/user_cart', (req, res) => {
 });
 
 // Ruta para obtener el archivo cat.json (en la carpeta 'cats')
-app.get('/cats', (req, res) => {
+app.get('/cats',  authorize, (req, res) => {
   const filePath = path.join(__dirname, 'data', 'cats', 'cat.json');
 
   console.log('Buscando archivo cat.json en cats:', filePath); // Depuración
@@ -206,7 +204,7 @@ app.get('/cats', (req, res) => {
   });
 });
 
-app.post('/login', (req, res) => {
+app.post('/login',  (req, res) => {
   const { username, password } = req.body;
 
   console.log('Datos recibidos:', req.body); // Depuración
@@ -222,7 +220,6 @@ app.post('/login', (req, res) => {
     res.status(401).json({ message: "Credenciales incorrectas" });
   }
 });
-
 
 
 
