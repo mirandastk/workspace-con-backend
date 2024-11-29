@@ -240,22 +240,20 @@ app.get('/cats',  authorize, (req, res) => {
   });
 });
 
-app.post('/login',  (req, res) => {
+app.post('/login', (req, res) => {
   const { username, password } = req.body;
 
-  console.log('Datos recibidos:', req.body); // Depuración
+  console.log('Datos recibidos en backend:', req.body); // Verificar que los datos recibidos son correctos
+
   if (!username || !password) {
     return res.status(400).json({ message: "Faltan credenciales" });
   }
 
-  if (username === "admin" && password === "admin") {
+  if (username === "admin@gmail.com" && password === "admin") {
     // Generar token
-    const token = jwt.sign({ username }, SECRET_KEY, { expiresIn: '1h' });
+    const token = jwt.sign({ username }, SECRET_KEY, { expiresIn: '1d' });
     res.json({ message: "Login exitoso", token });
-  } else {
+} else {
     res.status(401).json({ message: "Credenciales incorrectas" });
-  }
+}
 });
-
-
-

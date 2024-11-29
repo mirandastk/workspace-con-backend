@@ -1,47 +1,47 @@
-
 document.getElementById("login-form").addEventListener("submit", function(event) {
-    event.preventDefault();  // Prevenir el comportamiento por defecto del formulario (recarga de la página)
+    event.preventDefault(); // Evitar que el formulario recargue la página
 
-    // Obtener valores de los campos
-    let usuario = document.getElementById("usuario").value;
-    let contraseña = document.getElementById("contraseña").value;
+    // Obtener valores de los campos del formulario
+    let usuario = document.getElementById("usuario").value.trim(); // Valor ingresado en el campo "usuario"
+    let contraseña = document.getElementById("contraseña").value.trim(); // Valor ingresado en el campo "contraseña"
 
-    // Validar que ambos campos no estén vacíos
+    // Validar campos vacíos
     if (usuario === "" || contraseña === "") {
         alert("Por favor, completa todos los campos.");
-        
-    } else {
-        //- Guardar el nombre de usuario en localStorage-
+        return;
+    }
+
+    // Enviar las credenciales al backend con los valores introducidos por el usuario
+    fetch("http://localhost:3000/login", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        // Aquí estamos tomando los valores de los campos del formulario
+        body: JSON.stringify({ username: usuario, password: contraseña })
+    })
+    .then(response => {
+        if (!response.ok) {
+            // Manejo de errores (credenciales incorrectas, etc.)
+            return response.json().then(data => { throw new Error(data.message); });
+        }
+        return response.json();
+    })
+    .then(data => {
+        // Guardar el token en localStorage
+        localStorage.setItem("authToken", data.token);
         localStorage.setItem("usuario", usuario);
 
-        // Redireccionar a la página de portada 
+        // Redirigir a la página de portada
         window.location.href = "index.html";
-    }
-});
-sessionStorage.setItem("isLoggedIn", "true");
-function isValidUser(username, password) {
-    return username !== "" && password !== "";
-}
-
-document.getElementById("login-form").addEventListener("submit", function(event) {
-    event.preventDefault();  // Prevenir el comportamiento por defecto del formulario
-
-    // Obtener el valor del campo de email
-    const email = document.getElementById("usuario").value;
-
-    // Validar que el email no esté vacío
-    if (email === "") {
-        alert("Por favor, completa el campo de email.");
-    } else {
-        // Guardar el email en localStorage
-        localStorage.setItem("loggedInEmail", email);
-
-        // Redireccionar a la página principal o portada
-        window.location.href = "index.html";
-    }
+    })
+    .catch(error => {
+        // Mostrar mensaje de error al usuario
+        alert(error.message || "Error al iniciar sesión. Por favor, intenta nuevamente.");
+    });
 });
 
-//....OJITO ocultar/mostrar contraseña....
+// Lógica para ocultar/mostrar contraseña
 document.querySelector('.toggle-eye').addEventListener('click', togglePassword);
 
 function togglePassword() {
@@ -58,4 +58,3 @@ function togglePassword() {
         toggleButton.classList.add('fa-eye');
     }
 }
-document.querySelector('.toggle-eye').addEventListener('click', togglePassword);
