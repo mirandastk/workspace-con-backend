@@ -1,1 +1,29 @@
+## Pasos a seguir para ejecutar el Backend del proyecto de e-commerce: 
+
+
+1. Asegurate de tener instalados Node.js (se puede verificar en terminal con "node -v")
+2. Clonar el repositorio (https://github.com/mirandastk/workspace-con-backend.git)
+3. En la carpeta del proyecto instalar las dependencias (con npm install)
+4. Iniciar el servidor (con npm start) 
+5. Para autenticar mediante JsonWebToken obtener un token realizando la solicitud POST a la ruta login con las credenciales (en Postman por ejemplo). Si las credenciales son correctas se recibe un token de autenticación.
+        {
+        "username": "admin@gmail.com",
+        "password": "admin"
+        }
+6. Para acceder a las rutas protegidas agregar en el encabezado de Authorization el token de esta forma: 
+        Bearer <tu-token>
+
+
+## Estructura de la carpeta del backend 
+        /proyecto-api-nodejs
+        ├── /data                # Contiene los archivos JSON de productos, comentarios, etc.
+        ├── /node_modules        # Módulos instalados por npm
+        ├── package.json         # Archivos de configuración y dependencias
+        ├── /server.js           # Archivo principal para levantar el servidor
+        └── README.md            # Este archivo
+
+## Manejo de errores posibles
+
+    Token no proporcionado: Asegurate de enviar el token en el encabezado Authorization.
+    Token expirado o inválido: Asegurate de iniciar sesión nuevamente para obtener un nuevo token.
 
