@@ -1,7 +1,7 @@
 ## Pasos a seguir para ejecutar el Backend del proyecto de e-commerce: 
 
 
-1. Asegurate de tener instalados Node.js (se puede verificar en terminal con "node -v")
+1. Tener instalado Node.js (se puede verificar en terminal con "node -v")
 2. Clonar el repositorio (https://github.com/mirandastk/workspace-con-backend.git)
 3. En la carpeta del proyecto instalar las dependencias (con npm install)
 4. Iniciar el servidor (con npm start) 
@@ -24,6 +24,6 @@
 
 ## Manejo de errores posibles
 
-    Token no proporcionado: Asegurate de enviar el token en el encabezado Authorization.
-    Token expirado o inválido: Asegurate de iniciar sesión nuevamente para obtener un nuevo token.
+    Token no proporcionado: Enviar el token en el encabezado Authorization.
+    Token expirado o inválido: Iniciar sesión nuevamente para obtener un nuevo token.
 
